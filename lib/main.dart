@@ -24,16 +24,36 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-
-            Image.asset("assets/senai.png", width: 300,),
-
-            ElevatedButton(onPressed: (){}, child: Text("Clique"),),
-
-            Text("Clique aqui 1x vez"),
-
-            Text("Clique aqui 2x vezes"),
-
-            Text("Clique e segure por alguns segundos"),
+            
+            GestureDetector(
+              onDoubleTap: () => print("Imagem tocada 2x"),
+              onTap: () => print("Imagem tocada"),
+              child: Image.asset("assets/senai.png", width: 300,),
+            ),
+    
+            ElevatedButton(
+              onLongPress: (){},
+              onPressed: (){
+                print("Botão foi clicado");
+              }, 
+            child: Text("Clique"),
+            ),
+            
+            GestureDetector(
+              onTap: (){ print("Texto tocado 1x"); },
+              child: Text("Clique aqui 1x vez"),
+            ),
+            
+            GestureDetector(
+              onDoubleTap: () => print("Tocado 2x"),
+              child: Text("Clique aqui 2x vezes"),
+            ),
+            
+            GestureDetector(
+              onLongPress: () => print("Longo toque"),
+              child: Text("Clique e segure por alguns segundos"),
+            ),
+            
 
 
           ],
